@@ -122,6 +122,12 @@ if(NOT RMAGINE_CUDA_DISABLE)
     add_subdirectory(src/rmagine_cuda)
 endif(NOT RMAGINE_CUDA_DISABLE)
 
+### RMAGINE HIPRT COMPONENT (AMD ray tracing backend, USE_HIP-gated)
+# Only builds when USE_HIP is set and HIPRT SDK is available
+if(USE_HIP)
+    add_subdirectory(src/rmagine_hiprt)
+endif()
+
 ### RMAGINE OPTIX COMPONENT
 option(RMAGINE_OPTIX_DISABLE "Disable rmagine::optix compilation" OFF)
 if(NOT RMAGINE_OPTIX_DISABLE)
